@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'OCRAEXT';
+    src: url('fonts/OCRAEXT.eot');
+    src: url('fonts/OCRAEXT.eot') format('embedded-opentype'),
+         url('fonts/OCRAEXT.woff2') format('woff2'),
+         url('fonts/OCRAEXT.woff') format('woff'),
+         url('fonts/OCRAEXT.ttf') format('truetype'),
+         url('fonts/OCRAEXT.svg#OCRAEXT') format('svg');
+}

@@ -1,0 +1,23 @@
+<ion-view view-title="Browse">
+  <ion-content scoll="false" style="background-color:#222;">
+   <div class="row">
+  <div class="col col-25" ng-repeat="item in matrix track by $index">
+  
+  <button class="button button-dark square " ng-disabled="isFinished" ng-click="click(item,$index)"><h2><div id="neon">{{item.value}}</div></h2></button>
+  </div>
+ </div>
+
+
+
+
+<ion-item class="item-borderless" style="background-color: transparent;">
+<div class='item text-center ' id="timer">
+<h1>
+ <timer interval="1000" autostart="false" id="neon" countdown="count" finish-callback="finishGame()">{{mminutes}} : {{sseconds}}</timer>
+ </h1>
+ </div>
+</ion-item>
+ <button id="neon" class="button button-dark icon ion-pause" ng-click="pause()" ng-disabled="!isStarted"></button>
+ <button id="neon" class="button button-dark icon ion-refresh" ng-click="restart()" ></button>
+  </ion-content>
+</ion-view>

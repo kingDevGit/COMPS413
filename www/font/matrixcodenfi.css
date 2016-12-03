@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'matrixcodenfi';
+    src: url('fonts/matrixcodenfi.eot');
+    src: url('fonts/matrixcodenfi.eot') format('embedded-opentype'),
+         url('fonts/matrixcodenfi.woff2') format('woff2'),
+         url('fonts/matrixcodenfi.woff') format('woff'),
+         url('fonts/matrixcodenfi.ttf') format('truetype'),
+         url('fonts/matrixcodenfi.svg#matrixcodenfi') format('svg');
+}

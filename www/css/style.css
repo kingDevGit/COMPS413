@@ -1,0 +1,35 @@
+/* Empty. Add your own CSS if you like */
+.square {
+width: 100% !important;
+height:0 !important;
+padding: 0 0 100% 0 !important;
+}
+.row{
+  flex-wrap: wrap;
+}
+
+#neon{
+
+font-family: "OCRAEXT";
+	 color: #39FF14;
+}
+
+#timer{
+
+background-color:transparent!important;
+
+border-style: solid;
+    border-color:#39FF14;
+
+}
+
+#mainButton{
+
+font-family: "OCRAEXT";
+	 color: #39FF14;
+
+background-color:transparent!important;
+border-style: solid;
+    border-color:#39FF14;
+}
+

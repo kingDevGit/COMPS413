@@ -1,0 +1,21 @@
+ <ion-modal-view>
+     <div class="bar bar-header " style="background-color: transparent;background-image: none !important; ">
+  <button class="button" style="background-color: transparent;"></button>
+
+  <h1 id="neon" class="title">Your highscore</h1>
+   <button class="button button-clear icon ion-close-round " id="neon" ng-click="highModal.hide()"></button>
+</div>
+
+    <ion-content style="background-color: #222;">
+    <div style="height:56px;"></div>
+<h1 id="neon">Standard Challenge</h1>
+
+<h1 id='neon'>{{highscore.standard}}</h1>
+
+
+<h1 id="neon">Grand Challenge</h1>
+
+<h1 id='neon'>{{highscore.grand}}</h1>
+
+    </ion-content>
+  </ion-modal-view>
