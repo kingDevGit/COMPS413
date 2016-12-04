@@ -4,7 +4,7 @@ angular.module('starter.controllers', [])
 
 
 
-  $scope.option=240;
+  $scope.option=120;
   $scope.scoreboard=null;
 
 
@@ -51,7 +51,7 @@ var current=JSON.parse(window.localStorage.grand||'null')
 
 .controller('gameCtrl', function($scope, $ionicModal, $timeout,$log,$cordovaVibration) {
 
-
+$log.debug($cordovaVibration)
  $ionicModal.fromTemplateUrl('templates/pause.html', {
   scope: $scope,
   animation: 'slide-in-up'
@@ -202,13 +202,15 @@ $scope.$on('timer-stopped', function (event, data){
 });
 
 $scope.startGame = function (){
+
+
   $scope.$broadcast('timer-start');
     $cordovaVibration.vibrate(500);
   $scope.timerRunning = true;
 };
 
 $scope.finishGame = function (){
-  //$cordovaVibration.vibrate(500);
+  $cordovaVibration.vibrate(500);
   $scope.isFinished=true;
   $scope.isStarted=false;
 
@@ -226,29 +228,34 @@ $scope.finishGame = function (){
  function saveHighScore(score){
 
 
-if($scope.$parent.option==240){
+if($scope.$parent.option==60){
   var current=JSON.parse(window.localStorage.standard||'null')
 
-  if(current==null){
 
 
-    window.localStorage.standard=score;
+
+if(score>current){
+    window.localStorage.setItem('standard',score);
   }
+
+
+
 }
 
 
 
 
-if($scope.$parent.option==480){
+if($scope.$parent.option==120){
 
 
-var current=JSON.parse(window.localStorage.grand||'null')
-
-  if(current==null){
+var current=JSON.parse(window.localStorage.grand||0)
 
 
-    window.localStorage.grand=score;
+
+if(score>current){
+    window.localStorage.setItem('grand',score);
   }
+
 
 
 }
@@ -275,8 +282,8 @@ standard:JSON.parse(window.localStorage.standard||0)
 
 
 $scope.highscore={
-grand:JSON.stringify(window.localStorage.grand),
-standard:JSON.stringify(window.localStorage.standard)
+grand:JSON.parse(window.localStorage.grand||0),
+standard:JSON.parse(window.localStorage.standard||0)
 
 }
  
@@ -306,7 +313,7 @@ $scope.custom={
   $scope.choice={
    standard:function(){ 
     $log.debug("Choose Standard")
-   $scope.$parent.option=120;
+   $scope.$parent.option=60;
 
    $state.go('app.browse');
 
@@ -314,7 +321,7 @@ $scope.custom={
  grand:function(){
 
  $log.debug("Choose Standard")
-   $scope.$parent.option=240;
+   $scope.$parent.option=120;
 
    $state.go('app.browse');
 
