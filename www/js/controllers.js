@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('onetoinfinity.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
@@ -6,13 +6,7 @@ angular.module('starter.controllers', [])
 
   $scope.option=120;
   $scope.scoreboard=null;
-
-
-
-
-
-
-
+  $scope.grand=false;
 
   var current=JSON.parse(window.localStorage.standard||'null')
 
@@ -171,6 +165,24 @@ $scope.click=function(button,index){
 
 
   $scope.counter++;
+}else{
+if($scope.$parent.grand==true){
+//Click not correct
+timeLimit--;
+
+  $scope.$broadcast('timer-set-countdown',timeLimit)
+
+
+    $cordovaVibration.vibrate(100);
+
+    
+
+
+
+    
+}
+
+
 }
 $log.debug("Click",button)
 
@@ -314,7 +326,7 @@ $scope.custom={
    standard:function(){ 
     $log.debug("Choose Standard")
    $scope.$parent.option=60;
-
+$scope.$parent.grand=false;
    $state.go('app.browse');
 
  },
@@ -322,7 +334,7 @@ $scope.custom={
 
  $log.debug("Choose Standard")
    $scope.$parent.option=120;
-
+   $scope.$parent.grand=true;
    $state.go('app.browse');
 
 
@@ -348,6 +360,7 @@ $scope.custom={
 
 
             $scope.$parent.option=$scope.custom.value
+            $scope.$parent.grand=false;
 
 
             return  $state.go('app.browse');
